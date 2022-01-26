@@ -1,0 +1,22 @@
+<div>
+    <mat-card *ngFor="let connection of connections;let i = index" class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{i+1}}.&nbsp;{{connection.name}}</mat-card-title>
+          <mat-card-subtitle>{{connection.feedbackType}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="ajdust-text"> 
+            <p>Courses:&nbsp;{{connection.email}}</p>
+          </div>
+          <div class="ajdust-text">
+            <p>Rating:&nbsp;{{connection.phone}}</p>
+          </div>
+          <div class="ajdust-text">
+            <p>Rating:&nbsp;{{connection.feedback}}</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button (click)="deletePost(connection._id)" color="primary" class="login-btn">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

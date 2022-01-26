@@ -1,0 +1,33 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title>Register</mat-card-title>
+      <mat-card-subtitle>fill in details to register</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content [formGroup]="registerForm">
+      <div>
+        <mat-form-field class="input-fields" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" placeholder="name" formControlName='name' [(ngModel)]="coach.name">
+          <mat-hint>narendra modi</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input-fields" appearance="fill">
+          <mat-label>Expertise</mat-label>
+          <input matInput type="text" placeholder="expertise" formControlName='expertise' [(ngModel)]="coach.expertise">
+          <mat-hint>java/Angular</mat-hint>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="input-fields" appearance="fill">
+          <mat-label>Number&nbsp;of&nbsp;Courses</mat-label>
+          <input matInput type="text" placeholder="20" formControlName='noOfCourses' [(ngModel)]="coach.noOfCourses">
+          <mat-hint>atlease 1</mat-hint>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button routerLink="../coachlist" class="login-btn" color="primary">Back</button>
+      <button mat-flat-button (click)="onSubmit()" color="primary" class="login-btn" [disabled]="registerForm.invalid">Submit</button>
+    </mat-card-actions>
+  </mat-card>

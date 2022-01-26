@@ -1,0 +1,20 @@
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .side {
+    display:none;
+  }
+  .barButton { 
+    display:block;
+  }
+
+  @media screen and (max-width: 600px) {
+    .side {
+      display:block;
+    }
+    .barButton { 
+      display:none;
+      ;
+    }
+  }

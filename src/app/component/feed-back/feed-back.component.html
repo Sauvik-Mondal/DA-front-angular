@@ -1,0 +1,47 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Provide Feddback</mat-card-title>
+    <mat-card-subtitle>connecting with {{ coach.name }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content [formGroup]="feedbackForm">
+    <div>
+      <mat-form-field class="input-fields" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="user" formControlName='name'>
+        <mat-hint>narendra modi</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-fields" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="email" formControlName='email'>
+        <mat-hint>example@asd.com</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-fields" appearance="fill">
+        <mat-label>Contact&nbsp;number</mat-label>
+        <input matInput placeholder="9876543210" formControlName='phone'>
+        <mat-hint>must be of length 10</mat-hint>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-fields" appearance="fill">
+        <mat-label>Type</mat-label>
+        <mat-select formControlName='feedbackType'>
+          <mat-option *ngFor="let item of typeOfFeedback" [value]="item">{{item}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="input-fields" appearance="fill">
+        <mat-label>Feedback</mat-label>
+        <textarea matInput placeholder="type your feedbak here...." formControlName='feedback'></textarea>
+      </mat-form-field>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button routerLink="../../coachlist" class="login-btn" color="primary">Back</button>
+    <button mat-flat-button (click)="onSubmit()" color="primary" class="login-btn" [disabled]="feedbackForm.invalid">Submit</button>
+  </mat-card-actions>
+</mat-card>

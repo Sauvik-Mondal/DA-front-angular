@@ -1,0 +1,21 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>{{coach.name}}</mat-card-title>
+    <mat-card-subtitle>{{coach.expertise}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="ajdust-text">
+      <p>Courses:&nbsp;{{coach.noOfCourses}}</p>
+    </div>
+    <div style="margin: -8px 0 10px 4px;">
+      <mat-star-rating [rating]="coach.rating" [starCount]="starCount" [color]="starColor"
+        (ratingUpdated)="onRatingChanged($event)"></mat-star-rating>
+    </div>
+    <div class="ajdust-text">
+      <p>Rating:&nbsp;{{coach.rating}}</p>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button routerLink="../../coachlist" color="primary" class="login-btn">Back</button>
+  </mat-card-actions>
+</mat-card>

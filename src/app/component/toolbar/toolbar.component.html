@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" class="side">
+     <mat-icon>menu</mat-icon>
+   </button>
+   <span routerLink="/coachlist">Digital Aristotle</span>
+   <span class="example-spacer"></span>
+   <button routerLink="/coachlist" mat-button class="barButton">
+    Coach
+  </button>
+  <button routerLink="/feedbackList" mat-button *ngIf="common.isAuthenticated()" class="barButton">
+    Feedback
+  </button>
+  <button routerLink="/login" mat-button *ngIf="!common.isAuthenticated()" class="barButton">
+    Login
+  </button>
+  <button (click)="logMeOut()" mat-button *ngIf="common.isAuthenticated()" class="barButton">
+    Logout
+  </button>
+  <div class="barButton">{{common.getUserMail()}}</div>
+   <!-- <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+     <mat-icon>favorite</mat-icon>
+   </button>
+   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+    <mat-icon>share</mat-icon>
+  </button> -->
+ </mat-toolbar>

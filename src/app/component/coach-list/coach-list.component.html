@@ -1,0 +1,35 @@
+<div>
+  <mat-card class="example-card" *ngIf="common.isAuthenticated()">
+    <mat-card-actions>
+      <button mat-flat-button routerLink="../register" color="primary" class="login-btn" *ngIf="!common.isCoach() && common.isAuthenticated()">Register as a Coach</button>
+      <button mat-flat-button routerLink="../register" color="primary" class="login-btn" *ngIf="common.isCoach() && common.isAuthenticated()">Update Details</button>
+    </mat-card-actions>
+  </mat-card>
+    <mat-card *ngFor="let coach of coaches" class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{coach.name}}</mat-card-title>
+          <mat-card-subtitle>{{coach.expertise}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="ajdust-text"> 
+            <p>Courses:&nbsp;{{coach.noOfCourses}}</p>
+          </div>
+          <div style="margin-left:5px;margin-top:-14px">
+            <button mat-icon-button *ngFor="let i of counter(coach.rating)">
+              <mat-icon>star</mat-icon>
+            </button>
+            <button mat-icon-button *ngFor="let i of counter(maxRating-coach.rating)">
+              <mat-icon>star_border</mat-icon>
+            </button>
+          </div>
+          <div class="ajdust-text">
+            <p>Rating:&nbsp;{{coach.rating}}</p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-flat-button [routerLink]="['../coachdetails/', coach._id ]" color="primary" class="login-btn" *ngIf="!(coach.userId===common.getUserId()) && common.isAuthenticated()">Show Details</button>
+          <button mat-flat-button [routerLink]="['../feedback/', coach._id ]" color="primary" class="login-btn">Provide Feddback</button>
+          <button mat-flat-button color="primary" (click)="resignMe(coach)" class="login-btn" *ngIf="(coach.userId===common.getUserId()) && common.isAuthenticated()">Resign</button>
+        </mat-card-actions>
+      </mat-card>
+</div>

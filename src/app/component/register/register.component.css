@@ -1,0 +1,33 @@
+.example-card {
+    position: relative;
+    max-width: 30%;
+    min-width: 200px;
+    padding: 2% 5% 2% 5%;
+    margin: 0 30vw 0 30vw;
+    top:3vw;
+    background-color: rgb(215, 224, 245);
+  }
+  
+.login-btn {
+  margin: 1px 3px 1px 3px;
+}
+.input-fields {
+  width:80%;
+}
+  @media screen and (max-width: 650px) {
+    .example-card {
+      margin: 0 10vw 0 10vw;
+      max-width: none;
+      min-width: none;
+      width: 60%;
+    }
+  }
+
+  @media screen and (max-width: 280px) {
+    .example-card {
+      margin: 1vw;
+      max-width: none;
+      min-width: none;
+      width: 90%;
+    }
+  }
