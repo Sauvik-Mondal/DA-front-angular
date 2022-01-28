@@ -8,8 +8,12 @@ import { CommonService } from './services/common.service';
 })
 export class AppComponent {
   title = 'alapA';
+  showFiller = false;
   constructor(private common: CommonService) { }
   ngOnInit(): void {
     this.common.autoLogin();
+  }
+  tog() {
+    this.showFiller=!this.showFiller;
   }
 }

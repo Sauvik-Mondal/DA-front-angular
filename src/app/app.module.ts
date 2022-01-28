@@ -24,9 +24,10 @@ import { CoachListComponent } from './component/coach-list/coach-list.component'
 import { CoachDetailsComponent } from './component/coach-details/coach-details.component';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { SidenavComponent } from './component/sidenav/sidenav.component';
-import { HeaderComponent } from './component/header/header.component';
 import { CommonService } from './services/common.service';
 import { StarRatingComponent } from './component/coach-details/star-rating/star-rating.component';
+import { RouterGuardService } from './services/router-guard.service';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,6 @@ import { StarRatingComponent } from './component/coach-details/star-rating/star-
     CoachDetailsComponent,
     ToolbarComponent,
     SidenavComponent,
-    HeaderComponent,
     StarRatingComponent
   ],
   imports: [
@@ -58,9 +58,10 @@ import { StarRatingComponent } from './component/coach-details/star-rating/star-
     ReactiveFormsModule ,
     HttpClientModule,
     MatSnackBarModule,
-    MatSelectModule
+    MatSelectModule,
+    MatListModule
   ],
-  providers: [CommonService],
+  providers: [CommonService,RouterGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

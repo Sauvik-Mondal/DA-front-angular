@@ -1,4 +1,14 @@
-<!-- <app-header></app-header> -->
-<app-toolbar></app-toolbar>
-<!-- <app-sidenav></app-sidenav> -->
-<router-outlet></router-outlet>
+<div style="height: 100%;width: 100%;">
+    <app-toolbar (toolbar_sidenavToggle)="tog()"></app-toolbar>
+    <mat-sidenav-container style="height: 92.5%;">
+    <mat-sidenav [opened]="showFiller" style="width: 40%;min-width: 100px;">
+      <mat-nav-list>
+        <app-sidenav (sidenav_sidenavToggle)="showFiller=false"></app-sidenav>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content (click)="showFiller=false">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

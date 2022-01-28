@@ -7,15 +7,16 @@ import { FeedBackComponent } from './component/feed-back/feed-back.component';
 import { ErrorComponent } from './component/error/error.component';
 import { CoachListComponent } from './component/coach-list/coach-list.component';
 import { CoachDetailsComponent } from './component/coach-details/coach-details.component';
+import { RouterGuardService } from './services/router-guard.service';
 
 const routes: Routes = [
   {path:'', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login',component: LoginComponent},
-  {path: 'feedbackList',component: FeedBackListComponent},
-  {path: 'register',component: RegisterComponent},
+  {path: 'feedbackList',component: FeedBackListComponent,canActivate:[RouterGuardService]},
+  {path: 'register',component: RegisterComponent,canActivate:[RouterGuardService]},
   {path: 'feedback/:coachId',component: FeedBackComponent},
   {path: 'coachlist',component: CoachListComponent},
-  {path: 'coachdetails/:coachId',component: CoachDetailsComponent},
+  {path: 'coachdetails/:coachId',component: CoachDetailsComponent,canActivate:[RouterGuardService]},
   {path: '**',component: ErrorComponent}
 ];
 
